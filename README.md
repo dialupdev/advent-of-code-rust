@@ -1,5 +1,5 @@
 # Advent of Code
 
 ```sh
-cargo run --bin 01
+cargo run --package advent-of-code-2022 --bin 01
 ```

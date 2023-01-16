@@ -21,7 +21,7 @@ fn part2(input: &str) -> u32 {
 }
 
 fn main() {
-    let file_path = "./input/2022/01-full.txt";
+    let file_path = "./2022/input/01-full.txt";
 
     let input = read_to_string(file_path).expect("Can't read file");
     let input = input.trim_end();
