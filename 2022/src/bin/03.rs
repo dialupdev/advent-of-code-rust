@@ -1,7 +1,5 @@
 // https://adventofcode.com/2022/day/3
 
-use std::fs::read_to_string;
-
 fn char_priority(char: char) -> u16 {
     let char_code = char as u16;
 
@@ -41,10 +39,7 @@ fn part2(input: &str) -> u16 {
 }
 
 fn main() {
-    let file_path = "./2022/input/03-full.txt";
-
-    let input = read_to_string(file_path).expect("Can't read file");
-    let input = input.trim_end();
+    let input = include_str!("../../input/03-full.txt").trim_end();
 
     println!("part 1: {}", part1(input));
     println!("part 2: {}", part2(input));

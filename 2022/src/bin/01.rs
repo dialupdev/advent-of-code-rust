@@ -1,7 +1,5 @@
 // https://adventofcode.com/2022/day/1
 
-use std::fs::read_to_string;
-
 fn part1(input: &str) -> u32 {
     input
         .split("\n\n")
@@ -21,10 +19,7 @@ fn part2(input: &str) -> u32 {
 }
 
 fn main() {
-    let file_path = "./2022/input/01-full.txt";
-
-    let input = read_to_string(file_path).expect("Can't read file");
-    let input = input.trim_end();
+    let input = include_str!("../../input/01-full.txt").trim_end();
 
     println!("part 1: {}", part1(input));
     println!("part 2: {}", part2(input));

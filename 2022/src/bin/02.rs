@@ -1,7 +1,5 @@
 // https://adventofcode.com/2022/day/2
 
-use std::fs::read_to_string;
-
 // Input mapping: A/X -> 0, B/Y -> 1, C/Z -> 2
 fn parse_line(line: &str) -> (u8, u8) {
     let bytes = line.as_bytes();
@@ -45,10 +43,7 @@ fn part2(input: &str) -> u16 {
 }
 
 fn main() {
-    let file_path = "./2022/input/02-full.txt";
-
-    let input = read_to_string(file_path).expect("Can't read file");
-    let input = input.trim_end();
+    let input = include_str!("../../input/02-full.txt").trim_end();
 
     println!("part 1: {}", part1(input));
     println!("part 2: {}", part2(input));

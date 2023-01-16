@@ -1,7 +1,5 @@
 // https://adventofcode.com/2022/day/6
 
-use std::fs::read_to_string;
-
 fn find_unique_set(input: &str, length: u16) -> u16 {
     let mut recent_unique_chars: Vec<char> = vec![];
 
@@ -38,10 +36,7 @@ fn part2(input: &str) -> u16 {
 }
 
 fn main() {
-    let file_path = "./2022/input/06-full.txt";
-
-    let input = read_to_string(file_path).expect("Can't read file");
-    let input = input.trim_end();
+    let input = include_str!("../../input/06-full.txt").trim_end();
 
     println!("part 1: {}", part1(input));
     println!("part 2: {}", part2(input));
