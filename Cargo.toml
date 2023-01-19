@@ -1,2 +1,2 @@
 [workspace]
-members = ["2022"]
+members = ["2018", "2022"]
