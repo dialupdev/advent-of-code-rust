@@ -13,6 +13,7 @@ fn part2(input: &str) -> i32 {
         .lines()
         .map(|line| line.parse::<i32>().unwrap())
         .cycle()
+        // scan is actually filter_scan which is why its iterator yields an option
         .scan(0, |freq, change| {
             *freq += change;
             Some(*freq)
