@@ -5,6 +5,10 @@ version = 3
 [[package]]
 name = "advent-of-code-2015"
 version = "0.1.0"
+dependencies = [
+ "itertools",
+ "regex",
+]
 
 [[package]]
 name = "advent-of-code-2018"
