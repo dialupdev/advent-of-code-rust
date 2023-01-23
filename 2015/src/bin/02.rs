@@ -23,7 +23,10 @@ fn part1(input: &str) -> u32 {
             let (l, w, h) = parse_line(&re, line);
             let areas = [l * w, w * h, h * l];
 
-            areas.iter().fold(0, |total, area| total + 2 * (*area as u32)) + (*areas.iter().min().unwrap() as u32)
+            areas
+                .iter()
+                .fold(0, |total, area| total + 2 * (*area as u32))
+                + (*areas.iter().min().unwrap() as u32)
         })
         .sum()
 }

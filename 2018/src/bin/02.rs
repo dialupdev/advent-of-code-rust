@@ -9,7 +9,11 @@ fn variations_without_one_char(line: &str) -> Vec<(String, usize)> {
     chars
         .enumerate()
         .map(|(i, _)| {
-            let removed = line.chars().take(i).chain(line.chars().skip(i + 1)).collect::<String>();
+            let removed = line
+                .chars()
+                .take(i)
+                .chain(line.chars().skip(i + 1))
+                .collect::<String>();
             // We have to store the position of the removed char too in order to
             // differentiate between variations in strings with repeated adjacent chars
             (removed, i)

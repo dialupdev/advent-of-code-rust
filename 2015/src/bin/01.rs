@@ -1,9 +1,10 @@
 // https://adventofcode.com/2015/day/1
 
 fn part1(input: &str) -> i16 {
-    input
-        .chars()
-        .fold(0, |floor, char| if char == '(' { floor + 1 } else { floor - 1 })
+    input.chars().fold(
+        0,
+        |floor, char| if char == '(' { floor + 1 } else { floor - 1 },
+    )
 }
 
 fn part2(input: &str) -> usize {
