@@ -4,7 +4,6 @@ use itertools::Itertools;
 use regex::Regex;
 
 fn parse_line(re: &Regex, line: &str) -> (u16, u16, u16) {
-    // Re-creating the Regex during each iteration would be very slow
     re.captures(line)
         .unwrap()
         .iter()
