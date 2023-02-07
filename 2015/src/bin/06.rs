@@ -55,7 +55,7 @@ fn part1(input: &str) -> usize {
     });
 
     grid.iter()
-        .map(|column| column.iter().filter(|&light| *light == true).count())
+        .map(|column| column.iter().filter(|&light| *light).count())
         .sum()
 }
 
