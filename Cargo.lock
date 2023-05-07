@@ -15,6 +15,9 @@ dependencies = [
 [[package]]
 name = "advent-of-code-2016"
 version = "0.1.0"
+dependencies = [
+ "regex",
+]
 
 [[package]]
 name = "advent-of-code-2017"
