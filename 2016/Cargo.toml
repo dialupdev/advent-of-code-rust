@@ -5,5 +5,5 @@ edition = "2021"
 
 [dependencies]
 hex = "0.4.3"
+md-5 = "0.10.5"
 regex = "1.8.1"
-rust-crypto = "0.2.36"
