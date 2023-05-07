@@ -1,19 +1,16 @@
 // https://adventofcode.com/2015/day/4
 
-use crypto::{digest::Digest, md5::Md5};
+use md5::{Digest, Md5};
 
 fn lowest_suffix_with_zeros(input: &str, zeros: usize) -> u32 {
-    let mut prefix_hash = Md5::new();
-    prefix_hash.input_str(input);
-
-    // This is for storing our computed digest later
-    let mut digest = vec![0u8; 16];
+    let mut hash = Md5::new();
+    hash.update(input);
 
     (1..)
         .find(|n| {
-            let mut hash = prefix_hash; // Md5 implements Copy
-            hash.input_str(&n.to_string());
-            hash.result(&mut digest);
+            let mut hash = hash.clone();
+            hash.update(&n.to_string());
+            let digest = hash.finalize();
 
             // All full bytes must be 0, and any half bytes must be < 0x10
             digest.iter().take(zeros / 2).all(|b| *b == 0)
