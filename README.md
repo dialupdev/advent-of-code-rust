@@ -1,5 +1,7 @@
 # Advent of Code
 
+## Run
+
 ```sh
-cargo run --package advent-of-code-2022 --bin 01
+make 2022 01
 ```
