@@ -24,7 +24,7 @@ fn build_commands(input: &str) -> Vec<i16> {
     commands
 }
 
-fn render_pixel_matrix(pixel_matrix: Vec<Vec<bool>>) -> String {
+fn render_pixel_matrix(pixel_matrix: [[bool; CRT_WIDTH]; CRT_HEIGHT]) -> String {
     let mut output = String::with_capacity(CRT_WIDTH * CRT_HEIGHT + CRT_HEIGHT);
 
     for i in 0..CRT_HEIGHT {
@@ -65,7 +65,7 @@ fn part1(input: &str) -> i16 {
 fn part2(input: &str) -> String {
     let mut cycle = 0;
     let mut x = 1;
-    let mut pixel_matrix = vec![vec![false; CRT_WIDTH]; CRT_HEIGHT];
+    let mut pixel_matrix = [[false; CRT_WIDTH]; CRT_HEIGHT];
 
     let mut i = 0;
     let mut j = 0;
