@@ -17,6 +17,7 @@ name = "advent-of-code-2016"
 version = "0.1.0"
 dependencies = [
  "hex",
+ "itertools",
  "md-5",
  "regex",
 ]
