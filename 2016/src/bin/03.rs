@@ -1,6 +1,6 @@
 // https://adventofcode.com/2016/day/3
 
-fn is_valid_triangle(sides: &Vec<u16>) -> bool {
+fn is_valid_triangle(sides: &[u16]) -> bool {
     let max_index = sides
         .iter()
         .enumerate()

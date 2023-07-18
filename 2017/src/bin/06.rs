@@ -9,7 +9,7 @@ fn parse_input(input: &str) -> Vec<u16> {
         .collect()
 }
 
-fn find_max_index(banks: &Vec<u16>) -> usize {
+fn find_max_index(banks: &[u16]) -> usize {
     // Get the max index with tie break going to the earlier number
     // rather than the later, which is the default in Rust
     banks.len()
