@@ -1,4 +1,4 @@
-.PHONY: 2015 2016 2017 2018 2022 
+.PHONY: 2015 2016 2017 2018 2019 2022 
 
 2015:
 	@bash ./run.sh $(MAKECMDGOALS)
@@ -10,6 +10,9 @@
 	@bash ./run.sh $(MAKECMDGOALS)
 
 2018:
+	@bash ./run.sh $(MAKECMDGOALS)
+
+2019:
 	@bash ./run.sh $(MAKECMDGOALS)
 
 2022:
