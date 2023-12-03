@@ -1,16 +1,29 @@
 // https://adventofcode.com/2023/day/1
 
+use either::Either;
+use std::{iter::Rev, str::Chars};
+
+fn find_digit(chars: Either<Chars, Rev<Chars>>) -> u32 {
+    chars
+        .into_iter()
+        .find_map(|char| {
+            if char.is_numeric() {
+                Some(char.to_digit(10).unwrap())
+            } else {
+                None
+            }
+        })
+        .unwrap()
+}
+
 fn part1(input: &str) -> u32 {
     input
         .lines()
         .map(|line| {
-            let mut digits = line
-                .chars()
-                .filter(|char| char.is_numeric())
-                .map(|char| char.to_digit(10).unwrap())
-                .peekable();
+            let first_digit = find_digit(Either::Left(line.chars()));
+            let last_digit = find_digit(Either::Right(line.chars().rev()));
 
-            *digits.peek().unwrap() * 10 + digits.last().unwrap()
+            first_digit * 10 + last_digit
         })
         .sum::<u32>()
 }
