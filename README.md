@@ -1,7 +1,13 @@
 # Advent of Code
 
+## Setup
+
+```sh
+brew install just
+```
+
 ## Run
 
 ```sh
-make 2022 01
+just run 2023 01
 ```
