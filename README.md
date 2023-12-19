@@ -11,3 +11,9 @@ brew install just
 ```sh
 just run 2023 01
 ```
+
+## Test
+
+```sh
+just test 2023 01
+```
