@@ -9,9 +9,8 @@ fn part1(input: &str) -> u32 {
     let mut groups = input.split("\n\n");
 
     let moves = groups.next().unwrap().chars().collect::<Vec<char>>();
-    let mut move_index = 0;
-
     let mut nodes: HashMap<&str, (&str, &str)> = HashMap::new();
+
     groups.next().unwrap().lines().for_each(|line| {
         let caps = re.captures(line).unwrap();
         let label = caps.get(1).unwrap().as_str();
@@ -21,8 +20,9 @@ fn part1(input: &str) -> u32 {
         nodes.insert(label, (left, right));
     });
 
-    let mut move_count = 0;
     let mut label = "AAA";
+    let mut move_index = 0;
+    let mut move_count = 0;
     let mut node;
 
     while label != "ZZZ" {
@@ -50,4 +50,14 @@ fn main() {
 
     println!("part 1: {}", part1(input));
     // println!("part 2: {}", part2(input));
+}
+
+#[cfg(test)]
+mod tests {
+    const INPUT: &str = include_str!("../../input/08.txt");
+
+    #[test]
+    fn part1() {
+        assert_eq!(super::part1(INPUT.trim_end()), 14429);
+    }
 }

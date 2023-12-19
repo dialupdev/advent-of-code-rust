@@ -50,3 +50,13 @@ fn main() {
 
     println!("part 1: {}", part1(input));
 }
+
+#[cfg(test)]
+mod tests {
+    const INPUT: &str = include_str!("../../input/09.txt");
+
+    #[test]
+    fn part1() {
+        assert_eq!(super::part1(INPUT.trim_end()), 74532);
+    }
+}

@@ -1,3 +1,5 @@
+// https://adventofcode.com/2019/day/2
+
 fn part1(input: &str) -> u32 {
     let mut program = input
         .split(',')
@@ -36,14 +38,10 @@ fn part1(input: &str) -> u32 {
 
         let output_address = program[pointer + 3] as usize;
 
-        println!("output_address is {}", output_address);
-
         program[output_address] = result;
 
         pointer += 4;
     }
-
-    println!("program is {:?}", program);
 
     program[0]
 }
@@ -52,4 +50,14 @@ fn main() {
     let input = include_str!("../../input/02.txt").trim_end();
 
     println!("part 1: {}", part1(input));
+}
+
+#[cfg(test)]
+mod tests {
+    const INPUT: &str = include_str!("../../input/02.txt");
+
+    #[test]
+    fn part1() {
+        assert_eq!(super::part1(INPUT.trim_end()), 3562624);
+    }
 }

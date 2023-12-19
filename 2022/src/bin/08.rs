@@ -120,3 +120,18 @@ fn main() {
     println!("part 1: {}", part1(input));
     println!("part 2: {}", part2(input));
 }
+
+#[cfg(test)]
+mod tests {
+    const INPUT: &str = include_str!("../../input/08.txt");
+
+    #[test]
+    fn part1() {
+        assert_eq!(super::part1(INPUT.trim_end()), 1719);
+    }
+
+    #[test]
+    fn part2() {
+        assert_eq!(super::part2(INPUT.trim_end()), 590824);
+    }
+}
