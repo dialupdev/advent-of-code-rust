@@ -15,5 +15,6 @@ just run 2023 01
 ## Test
 
 ```sh
+just test 2023
 just test 2023 01
 ```
