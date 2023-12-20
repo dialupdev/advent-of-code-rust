@@ -7,7 +7,7 @@ name = "advent-of-code-2015"
 version = "0.1.0"
 dependencies = [
  "fancy-regex",
- "itertools 0.10.5",
+ "itertools",
  "md-5",
  "regex",
 ]
@@ -17,7 +17,7 @@ name = "advent-of-code-2016"
 version = "0.1.0"
 dependencies = [
  "hex",
- "itertools 0.10.5",
+ "itertools",
  "md-5",
  "regex",
 ]
@@ -26,7 +26,7 @@ dependencies = [
 name = "advent-of-code-2017"
 version = "0.1.0"
 dependencies = [
- "itertools 0.10.5",
+ "itertools",
  "regex",
 ]
 
@@ -34,7 +34,7 @@ dependencies = [
 name = "advent-of-code-2018"
 version = "0.1.0"
 dependencies = [
- "itertools 0.10.5",
+ "itertools",
  "regex",
 ]
 
@@ -46,7 +46,7 @@ version = "0.1.0"
 name = "advent-of-code-2022"
 version = "0.1.0"
 dependencies = [
- "itertools 0.10.5",
+ "itertools",
  "regex",
  "serde_json",
 ]
@@ -56,7 +56,7 @@ name = "advent-of-code-2023"
 version = "0.1.0"
 dependencies = [
  "either",
- "itertools 0.12.0",
+ "itertools",
  "regex",
 ]
 
@@ -94,6 +94,12 @@ dependencies = [
 ]
 
 [[package]]
+name = "cfg-if"
+version = "1.0.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "baf1de4339761588bc0619e3cbc0120ee582ebb74b53b4efbf79117bd2da40fd"
+
+[[package]]
 name = "crypto-common"
 version = "0.1.6"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -105,9 +111,9 @@ dependencies = [
 
 [[package]]
 name = "digest"
-version = "0.10.6"
+version = "0.10.7"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "8168378f4e5023e7218c89c891c0fd8ecdb5e5e4f18cb78f38cf245dd021e76f"
+checksum = "9ed9a281f7bc9b7576e61468ba615a66a5c8cfdff42420a70aa82701a3b1e292"
 dependencies = [
  "block-buffer",
  "crypto-common",
@@ -121,9 +127,9 @@ checksum = "a26ae43d7bcc3b814de94796a5e736d4029efb0ee900c12e2d54c993ad1a1e07"
 
 [[package]]
 name = "fancy-regex"
-version = "0.11.0"
+version = "0.12.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "b95f7c0680e4142284cf8b22c14a476e87d61b004a3a0861872b32ef7ead40a2"
+checksum = "7493d4c459da9f84325ad297371a6b2b8a162800873a22e3b6b6512e61d18c05"
 dependencies = [
  "bit-set",
  "regex",
@@ -147,15 +153,6 @@ checksum = "7f24254aa9a54b5c858eaee2f5bccdb46aaf0e486a595ed5fd8f86ba55232a70"
 
 [[package]]
 name = "itertools"
-version = "0.10.5"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "b0fd2260e829bddf4cb6ea802289de2f86d6a7a690192fbe91b3f46e0f2c8473"
-dependencies = [
- "either",
-]
-
-[[package]]
-name = "itertools"
 version = "0.12.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "25db6b064527c5d482d0423354fcd07a89a2dfe07b67892e62411946db7f07b0"
@@ -171,10 +168,11 @@ checksum = "b1a46d1a171d865aa5f83f92695765caa047a9b4cbae2cbf37dbd613a793fd4c"
 
 [[package]]
 name = "md-5"
-version = "0.10.5"
+version = "0.10.6"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "6365506850d44bff6e2fbcb5176cf63650e48bd45ef2fe2665ae1570e0f4b9ca"
+checksum = "d89e7ee0cfbedfc4da3340218492196241d89eefb6dab27de5df917a6d2e78cf"
 dependencies = [
+ "cfg-if",
  "digest",
 ]
 
