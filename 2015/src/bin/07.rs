@@ -21,17 +21,9 @@ fn parse_or_get_value<'a>(
     values: &mut HashMap<&'a str, u16>,
     key: &'a str,
 ) -> u16 {
-    match values.get(key) {
-        Some(value) => *value,
-        None => match key.parse::<u16>() {
-            Ok(value) => value,
-            Err(_) => {
-                let value = get_value(wires, values, key);
-                values.insert(key, value);
-
-                value
-            }
-        },
+    match key.parse::<u16>() {
+        Ok(value) => value,
+        Err(_) => get_value(wires, values, key),
     }
 }
 
@@ -40,10 +32,15 @@ fn get_value<'a>(
     values: &mut HashMap<&'a str, u16>,
     key: &'a str,
 ) -> u16 {
+    // Check the cache first
+    if values.get(key).is_some() {
+        return *values.get(key).unwrap();
+    }
+
     let formula = *wires.get(key).unwrap();
     let mut split = formula.split_whitespace();
 
-    match split.clone().count() {
+    let value = match split.clone().count() {
         1 => {
             // Assignment
             parse_or_get_value(wires, values, formula)
@@ -85,7 +82,12 @@ fn get_value<'a>(
             }
         }
         _ => unreachable!(),
-    }
+    };
+
+    // Cache the value
+    values.insert(key, value);
+
+    value
 }
 
 fn part1(input: &str) -> u16 {
@@ -99,7 +101,7 @@ fn part2(input: &str) -> u16 {
     let mut wires = parse_input(input);
     let mut values: HashMap<&str, u16> = HashMap::new();
 
-    wires.entry("b").and_modify(|entry| *entry = "16076");
+    wires.entry("b").and_modify(|formula| *formula = "16076");
 
     get_value(&wires, &mut values, "a")
 }
