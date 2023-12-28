@@ -43,6 +43,10 @@ name = "advent-of-code-2019"
 version = "0.1.0"
 
 [[package]]
+name = "advent-of-code-2020"
+version = "0.1.0"
+
+[[package]]
 name = "advent-of-code-2022"
 version = "0.1.0"
 dependencies = [
