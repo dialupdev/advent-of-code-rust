@@ -3,11 +3,7 @@
 fn part1(input: &str) -> u32 {
     input
         .split("\n\n")
-        .map(|group| {
-            group
-                .lines()
-                .fold(0, |sum, line| sum + line.parse::<u32>().unwrap())
-        })
+        .map(|group| group.lines().map(|line| line.parse::<u32>().unwrap()).sum())
         .max()
         .unwrap()
 }
@@ -15,11 +11,7 @@ fn part1(input: &str) -> u32 {
 fn part2(input: &str) -> u32 {
     let mut groups: Vec<u32> = input
         .split("\n\n")
-        .map(|group| {
-            group
-                .lines()
-                .fold(0, |sum, line| sum + line.parse::<u32>().unwrap())
-        })
+        .map(|group| group.lines().map(|line| line.parse::<u32>().unwrap()).sum())
         .collect();
 
     groups.sort_by(|a, b| b.cmp(a));
