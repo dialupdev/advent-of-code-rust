@@ -1,0 +1,6 @@
+[package]
+name = "advent-of-code-2021"
+edition = "2021"
+
+[dependencies]
+itertools = "0.12.1"

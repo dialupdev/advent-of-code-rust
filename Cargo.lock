@@ -4,6 +4,7 @@ version = 3
 
 [[package]]
 name = "advent-of-code-2015"
+version = "0.0.0"
 dependencies = [
  "fancy-regex",
  "itertools",
@@ -13,6 +14,7 @@ dependencies = [
 
 [[package]]
 name = "advent-of-code-2016"
+version = "0.0.0"
 dependencies = [
  "hex",
  "itertools",
@@ -22,6 +24,7 @@ dependencies = [
 
 [[package]]
 name = "advent-of-code-2017"
+version = "0.0.0"
 dependencies = [
  "itertools",
  "regex",
@@ -29,6 +32,7 @@ dependencies = [
 
 [[package]]
 name = "advent-of-code-2018"
+version = "0.0.0"
 dependencies = [
  "itertools",
  "regex",
@@ -36,16 +40,26 @@ dependencies = [
 
 [[package]]
 name = "advent-of-code-2019"
+version = "0.0.0"
 
 [[package]]
 name = "advent-of-code-2020"
+version = "0.0.0"
 dependencies = [
  "once_cell",
  "regex",
 ]
 
 [[package]]
+name = "advent-of-code-2021"
+version = "0.0.0"
+dependencies = [
+ "itertools",
+]
+
+[[package]]
 name = "advent-of-code-2022"
+version = "0.0.0"
 dependencies = [
  "itertools",
  "regex",
@@ -54,6 +68,7 @@ dependencies = [
 
 [[package]]
 name = "advent-of-code-2023"
+version = "0.0.0"
 dependencies = [
  "either",
  "itertools",
@@ -153,9 +168,9 @@ checksum = "7f24254aa9a54b5c858eaee2f5bccdb46aaf0e486a595ed5fd8f86ba55232a70"
 
 [[package]]
 name = "itertools"
-version = "0.12.0"
+version = "0.12.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "25db6b064527c5d482d0423354fcd07a89a2dfe07b67892e62411946db7f07b0"
+checksum = "ba291022dbbd398a455acf126c1e341954079855bc60dfdda641363bd6922569"
 dependencies = [
  "either",
 ]
