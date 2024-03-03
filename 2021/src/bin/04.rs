@@ -94,10 +94,50 @@ fn part1(input: &str) -> u32 {
     0
 }
 
+fn part2(input: &str) -> u32 {
+    let mut boards = create_boards(input);
+
+    let turns = input
+        .lines()
+        .next()
+        .unwrap()
+        .split(',')
+        .map(|turn| turn.parse::<u8>().unwrap());
+
+    let mut winning_board_indexes: Vec<usize> = vec![];
+
+    for turn in turns {
+        for (i, board) in boards.iter_mut().enumerate() {
+            if mark_number_and_check_for_win(board, turn) {
+                // This board wins!
+                winning_board_indexes.push(i);
+            }
+        }
+
+        if winning_board_indexes.len() > 0 {
+            let mut winning_board: Board = vec![];
+
+            winning_board_indexes.iter().rev().for_each(|i| {
+                winning_board = boards.remove(*i);
+            });
+
+            winning_board_indexes.clear();
+
+            // If there are no boards left, we can calculate the score
+            if boards.len() == 0 {
+                return calculate_score(&winning_board, turn);
+            }
+        }
+    }
+
+    0
+}
+
 fn main() {
     let input = include_str!("../../input/04.txt").trim_end();
 
     println!("part 1: {}", part1(input));
+    println!("part 2: {}", part2(input));
 }
 
 #[cfg(test)]
@@ -107,5 +147,10 @@ mod tests {
     #[test]
     fn part1() {
         assert_eq!(super::part1(INPUT.trim_end()), 67716);
+    }
+
+    #[test]
+    fn part2() {
+        assert_eq!(super::part2(INPUT.trim_end()), 1830);
     }
 }
