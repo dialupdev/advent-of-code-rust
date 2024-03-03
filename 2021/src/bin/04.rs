@@ -1,8 +1,5 @@
 // https://adventofcode.com/2021/day/4
 
-// If you run this a bunch of times fast, it will fail occasionally. Wut?????
-// rustc v1.76.0, edition 2021
-
 use std::collections::HashSet;
 
 type Board = Vec<HashSet<u8>>;
@@ -14,26 +11,32 @@ fn create_boards(input: &str) -> Vec<Board> {
         .split("\n\n")
         .skip(1)
         .map(|board_data| {
-            // Add rows
-            let mut board = board_data
+            // Build rows
+            let rows_vec = board_data
                 .split('\n')
                 .map(|row| {
-                    let row_vec = row
-                        .split_whitespace()
+                    row.split_whitespace()
                         .map(|cell| cell.parse::<u8>().unwrap())
-                        .collect::<Vec<_>>();
-
-                    HashSet::from_iter(row_vec)
+                        .collect::<Vec<_>>()
                 })
                 .collect::<Vec<_>>();
+
+            // Convert each row to a HashSet
+            let mut board: Board = rows_vec
+                .iter()
+                .map(|row_vec| {
+                    let bb = HashSet::from_iter(row_vec.clone());
+                    bb
+                })
+                .collect();
 
             // Add columns by transposing the rows 90 degrees
             // This transposition code only works with square matrices
             let mut columns: Vec<HashSet<u8>> =
-                vec![HashSet::with_capacity(board.len()); board.len()];
+                vec![HashSet::with_capacity(rows_vec.len()); rows_vec.len()];
 
-            board.iter().for_each(|row| {
-                row.iter().enumerate().for_each(|(j, cell)| {
+            rows_vec.iter().for_each(|row_vec| {
+                row_vec.iter().enumerate().for_each(|(j, cell)| {
                     columns[j].insert(*cell);
                 })
             });
